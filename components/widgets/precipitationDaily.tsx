@@ -46,7 +46,7 @@ export default function PrecipitationDaily({
                       className="object-contain object-center"
                     />
                   </div>
-                  <div>{d.precipitationProbability}%</div>
+                  <div>{Math.min(99, d.precipitationProbability)}%</div>
                 </div>
               </div>
             );
