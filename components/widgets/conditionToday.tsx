@@ -35,7 +35,7 @@ export default function ConditionToday({
 
   return (
     <div className="box-border py-2">
-      <div className="mx-2">Temperature (°C)</div>
+      <div className="mx-2 font-bold pb-2">Temperature (°C)</div>
       <div className="flex mx-2 flex-row  overflow-scroll no-scrollbar items-center gap-6 snap-x snap-mandatory">
         {
           data.map((d, index) => {

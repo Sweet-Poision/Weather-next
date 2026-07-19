@@ -33,7 +33,7 @@ export default function ConditionDaily({
 
   return (
     <div className="box-border flex flex-col py-2">
-      <div className="mx-2">Days conditions (°C)</div>
+      <div className="mx-2 font-bold pb-2">Days conditions (°C)</div>
       <div className="flex mx-2 md:h-28 h-68 flex-col overflow-scroll no-scrollbar gap-2 snap-y">
         {
           data.map((d, index) => {

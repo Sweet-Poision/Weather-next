@@ -25,7 +25,7 @@ export default function PrecipitationDaily({
 
   return (
     <div className="box-border flex flex-col py-2">
-      <div className="mx-2">Precipitaion Weekly</div>
+      <div className="mx-2 font-bold pb-2">Precipitaion This Week</div>
       <div className="flex mx-2 flex-col md:h-25 h-60 overflow-scroll no-scrollbar gap-3 snap-y">
         {
           data.map((d, index) => {
@@ -35,7 +35,7 @@ export default function PrecipitationDaily({
                 <div className="flex-1 flex flex-row items-end border bg-white border-t-0 h-4 rounded-b-[5px]">
                   <div className="w-full bg-cyan-600" style={{height : `${d.precipitationProbability}%`}}></div>
                 </div>
-                <div className="flex-1 text-right">{d.precipitationSum} mm</div>
+                <div className="flex-1.2 text-right">{d.precipitationSum} mm</div>
                 <div className="flex-1 flex flex-row gap-2">
                   <div className="relative rounded-[50%] w-5 h-5 overflow-hidden">
                     <Image

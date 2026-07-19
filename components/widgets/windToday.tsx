@@ -29,7 +29,7 @@ export default function WindToday({
 
   return (
     <div className="box-border py-2">
-      <div className="mx-2">Wind - Speed (kph) - Gusts</div>
+      <div className="mx-2 font-bold pb-2">Wind - Speed (kph) - Gusts</div>
       <div className="flex mx-2 flex-row  overflow-scroll no-scrollbar items-center gap-3 snap-x snap-mandatory">
         {
           data.map((d, index) => {

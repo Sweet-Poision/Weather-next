@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+
 import { useEffect} from 'react'
 import Image from 'next/image'
 import Input from '@/components/input'
@@ -11,11 +13,9 @@ export default function Navbar() {
 
   const searchHeightPixels = 40
   const { location, setLocation, setWeatherInfo } = useWeather()
+  const [ pendingLocation, setPendingLocation ] = useState<LocationResult | null>(null)
 
-  const handleLocationSelect = (location: LocationResult) => {
-    console.log('Selected location:', location);
-    setLocation(location)
-  };
+
 
   useEffect(() => {
     let cancelled = false
@@ -29,6 +29,8 @@ export default function Navbar() {
       }
       getWeather(location.lat, location.lng)
     }
+
+
 
     if (!navigator.geolocation) {
       console.error('Geolocation not supported by this browser')
@@ -97,6 +99,20 @@ export default function Navbar() {
     }
   }
 
+  const handleLocationSelect = (location: LocationResult) => {
+    console.log('Selected location:', location);
+    setPendingLocation(location)
+  };
+
+  const handleSearch = () => {
+    if (pendingLocation) {
+      setLocation(pendingLocation)
+      getWeather(pendingLocation.lat, pendingLocation.lng)
+    } else {
+      getWeather()
+    }
+}
+
   return (
     <nav className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between mx-3 mt-3 items-center pb-4">
       <div className="flex flex-row items-center gap-3">
@@ -121,7 +137,7 @@ export default function Navbar() {
         <div>
           <button
             className="flex flex-row items-center gap-2 bg-amber-400 hover:bg-amber-500 py-2 px-3 rounded-br-2xl rounded-tr-2xl pr-7 transition-all"
-            onClick={() => getWeather()}
+            onClick={handleSearch}
           >
             <div className="relative" style={{ height: `${searchHeightPixels - 10}px`, aspectRatio: 1 / 1 }}>
               <Image

@@ -25,8 +25,8 @@ export default function WindDaily({
 
   return (
     <div className="box-border flex flex-col py-2">
-      <div className="mx-2">Wind - This Week - Gusts (North Up)</div>
-      <div className="flex mx-2 flex-col md:h-28 h-85 overflow-scroll no-scrollbar gap-3 snap-y">
+      <div className="mx-2 font-bold pb-2">Wind This Week - Gusts (North Up)</div>
+      <div className="flex mx-2 flex-col md:h-29 h-88 overflow-scroll no-scrollbar gap-3 snap-y">
         {
           data.map((d, index) => {
             return (
