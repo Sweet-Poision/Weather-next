@@ -1,7 +1,24 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
 
 :root {
   --background: #ffffff;
+  --background-morning: #fffbeb;
+  --background-afternoon: #ffffff;
+  --background-evening: #fffbeb;
+  --background-night: #cbd5e1;
   --foreground: #171717;
 }
 
@@ -12,15 +29,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  /*background: var(--background);*/
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
